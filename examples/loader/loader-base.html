@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+        <link rel="stylesheet" href="../../src/themes/default/panel/nexPanel.css">
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+        <script src="../../src/nex/jquery.easing.1.3.js"></script>
+        <script src="../../src/nex/jquery.mousewheel.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+        <script src="../../src/nex/loader/loader.js"></script>
+    </head>
+    <body style="height:100%;">
+    	
+		<div id="base" style="width:80%; overflow:hidden; height:900px;"></div>
+        <div class="container" he>
+            
+            <div style="border:4px solid red;  width:100px; padding:10px; height:100px; overflow:auto;" id="bd">ddddddddddddddddddd<br>dddddddd<br>dd<br>dd<br>dd<br>dd<br>ddddddddddddddddddddddddddddddddddd</div>
+        </div>
+        <script type="text/javascript">
+		function ggg( ){
+			try {
+			  a._b.c(); //强制报错,以便捕获e.stack
+			} catch (e) { //safari的错误对象只有line,sourceId,sourceURL
+			  if( e.sourceURL ) {
+				return e.sourceURL; //safari
+			  }
+			  stack = e.stack;
+			  if (!stack && window.opera) {//opera
+				  //opera 9没有e.stack,但有e.Backtrace,但不能直接取得,需要对e对象转字符串进行抽取
+				  stack = (String(e).match(/of linked script \S+/g) || []).join(" ");
+			  }
+			}
+			if (stack) {//chrome
+			  stack = stack.split(/[@ ]/g).pop(); //取得最后一行,最后一个空格或@之后的部分
+			  stack = stack[0] === "(" ? stack.slice(1, -1) : stack.replace(/\s/, ""); //去掉换行符
+			  return stack.replace(/(:\d+)?:\d+$/i, ""); //去掉行号与或许存在的出错字符起始位置
+			}
+		}
+			var Loader,Loader1,Loader2,Loader3;
+			var console = console || {log:function(s){
+				$('#base').append('<div>'+s+'</div>')
+			}}
+			function load(){
+				Loader1.load();	
+				Loader2.load();		
+				Loader3.load();		
+			}
+			$( function(){
+				Nex.getLoader().bind('onLoadProgress',function(value){
+						console.log(value);
+				});
+				Nex.require(['load1','load6'],function(a,b,c){
+					//console.log( a.h+'--' );
+					//console.log( b.h+'--' );
+					//console.log( c.h+'--' );
+					//console.log( a.h+'--' );
+					//Nex.Create(d,{html:'load SUccess'})
+					//	console.log(8887)	
+				});
+				/*Nex.require(['load5'],function(a,b,c){
+					console.log( a.h+'--' );
+				});*/
+				/*Loader1 = Nex.Create('Nex.Loader',{
+					autoLoad : false,
+					items : 'load1',
+					onComplete : function(){
+						console.log( exports.h );
+					}
+				});	
+				Loader2 = Nex.Create('Nex.Loader',{
+					autoLoad : false,
+					items : 'load2',
+					onComplete : function(){
+						console.log( exports.h );
+					}
+				});	
+				Loader3 = Nex.Create('Nex.Loader',{
+					autoLoad : false,
+					items : 'load3',
+					onComplete : function(){
+						console.log( exports.h );
+					}
+				});	*/
+				//load();
+			} );
+		</script>
+    </body>
+</html>

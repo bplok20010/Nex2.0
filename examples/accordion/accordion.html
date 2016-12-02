@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+        <link rel="stylesheet" href="../../src/themes/default/panel/nexPanel.css">
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+        <script src="../../src/nex/jquery.easing.1.3.js"></script>
+        <script src="../../src/nex/jquery.mousewheel.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+        <script src="../../src/nex/loader/Loader.js"></script>
+    </head>
+    <body style="height:100%;">
+    	<style type="text/css">
+		</style>
+		<div id="base" style="width:80%; overflow:hidden; height:600px;">
+		</div>
+        <script type="text/javascript">
+		$require(['Nex/accordion/jquery.nexAccordion','Nex/../themes/default/accordion/nexAccordion.css'],function(){
+			Nex.create('accordion',{
+				singleSelect : false,
+				items : [
+					{ 
+						title : '1',
+						html : 'dddddddddddddddddddddd'	
+					},
+					{ title : '2' },
+					{ title : '3' }
+				],
+				renderTo : '#base'
+			});
+		});
+		</script>
+    </body>
+</html>

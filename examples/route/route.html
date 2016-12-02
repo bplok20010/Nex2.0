@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+        <link rel="stylesheet" href="../../src/themes/default/panel/nexPanel.css">
+        <link rel="stylesheet" href="../../src/themes/default/window/nexWindow.css">
+  
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+        <script src="../../src/nex/loader/loader.js"></script>
+    </head>
+    <body style="height:100%;">
+    	<a href="#/">1</a>
+        <a href="#/view">2</a>
+        <a href="#/view/5">3</a>
+        <a href="#/view/">4</a>
+        <script type="text/javascript">
+			 function pathRegExp(path, opts) {
+				var insensitive = opts.caseInsensitiveMatch,
+					ret = {
+					  originalPath: path,
+					  regexp: path
+					},
+					keys = ret.keys = [];
+			
+				path = path
+				  .replace(/([().])/g, '\\$1')
+				  .replace(/(\/)?:(\w+)([\?|\*])?/g, function(_, slash, key, option){
+					var optional = option === '?' ? option : null;
+					var star = option === '*' ? option : null;
+					keys.push({ name: key, optional: !!optional });
+					slash = slash || '';
+					return ''
+					  + (optional ? '' : slash)
+					  + '(?:'
+					  + (optional ? slash : '')
+					  + (star && '(.+?)' || '([^/]+)')
+					  + (optional || '')
+					  + ')'
+					  + (optional || '');
+				  })
+				  .replace(/([\/$\*])/g, '\\$1');
+			
+				ret.regexp = new RegExp('^' + path + '$', insensitive ? 'i' : '');
+				return ret;
+			  }
+			  function switchRouteMatcher(on, route) {
+			  var keys = route.keys,
+				  params = {};
+		
+			  if (!route.regexp) return null;
+		
+			  var m = route.regexp.exec(on);
+			  if (!m) return null;
+		
+			  for (var i = 1, len = m.length; i < len; ++i) {
+				var key = keys[i - 1];
+		
+				var val = 'string' == typeof m[i]
+					  ? decodeURIComponent(m[i])
+					  : m[i];
+		
+				if (key && val) {
+				  params[key.name] = val;
+				}
+			  }
+			  return params;
+			}
+			 /**
+     * @returns the current active route, by matching it against the URL
+     */
+    function parseRoute() {
+      // Match a route
+      var params, match;
+      angular.forEach(routes, function(route, path) {
+        if (!match && (params = switchRouteMatcher($location.path(), route))) {
+          match = inherit(route, {
+            params: angular.extend({}, $location.search(), params),
+            pathParams: params});
+          match.$$route = route;
+        }
+      });
+      // No route matched; fallback to "otherwise" route
+      return match || routes[null] && inherit(routes[null], {params: {}, pathParams:{}});
+    }
+	
+	function parseAppUrl(relativeUrl, locationObj) {
+  var prefixed = (relativeUrl.charAt(0) !== '/');
+  if (prefixed) {
+    relativeUrl = '/' + relativeUrl;
+  }
+  var match = urlResolve(relativeUrl);
+  locationObj.$$path = decodeURIComponent(prefixed && match.pathname.charAt(0) === '/' ? match.pathname.substring(1) : match.pathname);
+  locationObj.$$search = parseKeyValue(match.search);
+  locationObj.$$hash = decodeURIComponent(match.hash);
+
+  // make sure path starts with '/';
+  if (locationObj.$$path && locationObj.$$path.charAt(0) != '/') locationObj.$$path = '/' + locationObj.$$path;
+}
+
+
+function urlResolve(url) {
+  var href = url;
+  if (Nex.isIE) {
+    // Normalize before parse.  Refer Implementation Notes on why this is
+    // done in two steps on IE.
+    urlParsingNode.setAttribute("href", href);
+    href = urlParsingNode.href;
+  }
+
+  urlParsingNode.setAttribute('href', href);
+
+  // $$urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+  return {
+    href: urlParsingNode.href,
+    protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+    host: urlParsingNode.host,
+    search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+    hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+    hostname: urlParsingNode.hostname,
+    port: urlParsingNode.port,
+    pathname: urlParsingNode.pathname && urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname
+  };
+}
+
+var urlParsingNode = document.createElement("a");
+var originUrl = urlResolve(window.location.href, true);
+var ourl = urlResolve('http://www.jb51.net//da/b/c/e/f?a=4&b=6#em?a=4&n=4',true);
+//console.log( ourl );
+//alert( 
+//	'href:'+ourl.href+'\n'+
+//	'protocol:'+ourl.protocol+'\n'+
+//	'host:'+ourl.host+'\n'+
+//	'search:'+ourl.search+'\n'+
+//	'hash:'+ourl.hash+'\n'+
+//	'hostname:'+ourl.hostname+'\n'+
+//	'port:'+ourl.port+'\n'+
+//	'pathname:'+ourl.pathname
+//);
+
+	if( Nex.IEVer === 6 ) {
+		console = {
+			log : function(s){
+				$('<div>'+s+'</div>').appendTo($('body'));	
+			}	
+		}	
+	}
+			var Route ;
+			Nex.setClassPath( 'Nex.Route','Nex/route/Route' );  
+			$require(['Nex.Route'],function( route ){
+				//console.log( route );	
+				Route = route.create()
+					 .when('/',function(){
+						console.log(1);	 
+					 })
+					 .when('/:id/:e/:v/:f/:g',function(d){console.log( d.x );})
+					 .when('/:id',function( d ){
+						 console.log(d.id);
+					 })
+					 .otherwise( '/459' )
+					  .otherwise( function(){
+						console.log('otherwise'); 
+					 } )
+					 .when('/view/:id',function(){console.log(111);})
+					 .when('/view/',function(){console.log(1111);});
+			});
+			var x = pathRegExp( '/a/:date/:id/view/:vid',{} );
+			var p = switchRouteMatcher( '/a/2014-08-09/5/view/45?t=2&c=3',x );
+			//console.log( p );
+		</script>
+    </body>
+</html>

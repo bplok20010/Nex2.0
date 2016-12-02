@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+		<link rel="stylesheet" href="../../src/themes/default/buttons/nexButton.css">
+		<link rel="stylesheet" href="../../src/themes/default/menu/nexMenu.css">
+		<link rel="stylesheet" href="../../src/themes/default/showat/nexShowAt.css">
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+        <script src="../../src/nex/jquery.easing.1.3.js"></script>
+        <script src="../../src/nex/jquery.mousewheel.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+		<script src="../../src/nex/menu/jquery.nexMenu.js"></script>
+		<script src="../../src/nex/showat/jquery.nexShowAt.js"></script>
+        <script src="../../src/nex/button/jquery.nexButton.js"></script>
+    </head>
+    <body style="margin:0px; padding:0px;">
+    <style type="text/css">
+		
+	</style>
+    
+		<div style="width:200px; height:200px; border:1px solid red; padding:10px; overflow:auto;">
+        	<div style="width:100%; height:100%; padding:2px;"></div>
+        </div>	     
+        <div class="container">
+            <div id="base" style="height:80%; overflow:hidden;">
+            	
+            </div>
+        </div>
+		<span style="display:inline-block;border:1px solid red;"><span style="border:1px solid green; display:inline-block; margin:0 auto; padding:0 3px;">tttttt</span></span>
+		<table cellpadding="0" cellspacing="0" border="0" style="width:100%; height:30px;">
+			<tr style="height:10px;">
+				<td style="width:30px;">122</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+		</table>
+		<div style="width:200px; border:1px solid red; overflow:hidden;">
+			<div style="float:left;width:20px; height:20px;"></div>
+			<div style=" overflow:hidden;">ddddddddddddddddddddddgggddddddddddddddddd</div>
+		</div>
+        <script type="text/javascript">
+		var p1,p2,p3;
+			$(function(){
+			p1=	Nex.Create('button',{
+					renderTo : '#base',
+					text : 'test1',
+					toggleBtn : true,
+					plain : true,
+					//width : '50%',
+				//	height : 50,
+				//	icon : 'http://bsdn.org/projects/dorado7/deploy/sample-center/images/file-types/view.gif',
+					callBack : function(){
+						console.log( 456 );
+					}
+				});
+			p2=	Nex.Create('button',{
+					renderTo : '#base',
+					text : 'test2',
+				//	width : '50%',
+				//	icon : 'abc',
+					menu : [
+						{ text : '1111' ,items : [ {text:'abc'} ]},
+						{ text : '2222' },
+						{ text : '1133311' },
+						{ text : '114411' },
+						{ text : '55' }
+					]
+				});
+			});
+		</script>
+    </body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+        <link rel="stylesheet" href="../../src/themes/default/form/form.css">
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+        <script src="../../src/nex/jquery.easing.1.3.js"></script>
+        <script src="../../src/nex/jquery.mousewheel.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/loader/loader.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+        <script src="../../src/nex/jquery.nexAjax.js"></script>
+        <script src="../../src/nex/form/jquery.validator.js"></script>
+        <script src="../../src/nex/form/Form.js"></script>
+         <script src="../../src/nex/form/Display.js"></script>
+         <script src="../../src/nex/form/Text.js"></script>
+         <script src="../../src/nex/form/Password.js"></script>
+         <script src="../../src/nex/form/Textarea.js"></script>
+		 <script src="../../src/nex/form/Radio.js"></script>
+         <script src="../../src/nex/form/Checkbox.js"></script>
+          <script src="../../src/nex/form/SingleCheckbox.js"></script>
+         <script src="../../src/nex/form/Select.js"></script>
+         <script src="../../src/nex/form/Trigger.js"></script>
+         <script src="../../src/nex/showat/jquery.nexShowAt.js"></script>
+    </head>
+    <body>
+    	<div style="border:1px solid red; line-height:18px; width:100px;">0</div>
+    	<style type="text/css">
+			.nex-form { padding:1px; }
+			.strong {
+				font-weight:bold;
+				color:#000;
+				opacity : 1;	
+			}
+			.inner {
+				text-indent:20px;	
+			}
+			.nex-search {
+				border:1px solid #26A0DA;
+				border-bottom:none;	
+			}
+		</style>
+        <input type="text" value="12"/>
+        <div class="container" style="overflow:hidden;position:relative; border:1px solid green;">
+            <div id="base" style=" width:100%; height:300px; position:relative; overflow:hidden;">
+            	
+            </div>
+            <div id="log" style="height:100px; overflow:auto; background:#ccc;"></div>
+            <div style="width:500px;" id="formPanel">
+            	
+            </div>
+            <button onClick="getResize();">容器宽度</button>
+            <button onClick="changeInfo();">想换就换</button>
+            
+        </div>
+        <script type="text/javascript">
+		if( Nex.IEVer < 9 ) {
+			var console = {
+					log : function( str ){
+						$('#log').append(str+'<br>');	
+					}
+				};	
+			console.log( Nex.IEVer );	
+		}
+		var sel,Forms;
+		function getResize(){
+			console.log( $('#base').width() );	
+			sel.val('');
+		}
+		function changeInfo(){
+			var data = {
+				username:'nobo',
+				age : 23,
+				sexy : '未知',
+				wifeName: '小李莎莎',
+				desc : '你已经满足'	
+			};	
+			Nex.Form.setGroupVal( data,'userinfo' );
+		};
+		$(function(){
+			sel1 = Nex.Create('form',{
+				renderTo : '#base',
+				//showLabel : false,
+				labelText : '11<br>11<br>11<br>11',
+				autoResize : true,
+				//readOnly : true,
+				//disabled : true,
+				display : 'block',
+				//labelvAlign : 'top',
+				value : 'nobo.zhou111',
+				onChange : function(a,v){
+					console.log(a,v,'------')	
+				},
+				onSizeChange : function(){
+					console.log('334');	
+				},
+				onFocus : function(){
+					console.log('focus');	
+				},
+				onBlur : function(){
+					console.log('blur');	
+				},
+				onClick : function(){
+					console.log('click');	
+				},
+				width : '100%',
+				labelPosition : 'left',
+				name : 'abc'
+			});
+			sel = Nex.Create('form',{
+				renderTo : '#base',
+				labelText : '11',
+				labelvAlign : 'top',
+				placeholder : '请输入...',
+				autoResize : true,
+				//value : 600,
+				triggerBtnsPosition : 'outer',
+				triggerBtns : [
+					['x2',function(){
+						var v = this.val();
+						this.val( v*2 );
+						return false;	
+					}],
+					['x3',function(){
+						var v = this.val();
+						this.val( v*3 );
+						return false;	
+					}],
+					['x4',function(){
+						var v = this.val();
+						this.val( v*4 );
+						return false;	
+					}]
+				],
+				width : '500',//formatItem
+				//value : 'http://gtms04.alicdn.com/tps/i4/TB1GXzpHXXXXXc3XXXX6Cwu2XXX-398-510.jpg_q75.jpg',
+				onBeforeLoadItems : function(){
+					console.log('onBeforeLoadItems');		
+				},
+				onLoadItemsSuccess : function(d){
+					console.log(d,'onLoadItemsSuccess');		
+				},
+				onLoadItemsError : function(){
+					console.log('onLoadItemsError');		
+				},
+				onLoadItemsComplete : function(){
+					console.log('onLoadItemsComplete');		
+				},
+				renderer1 : function( v ){
+					//console.log(v);
+					return '<img src="'+v+'">';	
+				},
+				//dropDownHeight : 200,
+			//	dropDownMinHeight : 100,
+			//	loadWidth : 100,
+				onClick : function(){
+					var self = this;
+					self.getAsyncData( function(opts,s,f,c){
+						self.showDropDowLoading();
+						setTimeout(function(){
+							//self.val('http://gtms04.alicdn.com/tps/i4/TB1GXzpHXXXXXc3XXXX6Cwu2XXX-398-510.jpg_q75.jpg');
+							self.hideDropDowLoading();
+							sel.showDropDown();	
+						},200);		
+					} );	
+				},
+				onDropDownItemOver : function(d){
+					//console.log(d);	
+				},
+				items : (function(){
+					var items = [];
+					for( var i=0;i<=10;i++ ) {
+						items.push( ''+i )	
+					}	
+					items.push( '-','a',20 )	
+					return items;
+				})(),
+				//width : '99%',
+				dropdownItemFilter : function(d){
+					var v = parseInt( d.value );
+					var pv = v/10;
+					if( pv == parseInt( pv ) ) {
+						d.cls += ' strong';
+						d.disabled = true;
+					} else {
+						d.cls += ' inner';	
+					}
+				},
+				labelPosition : 'left',
+				rules : ['required'],
+				name : 'abc1'
+			});
+			Forms = Nex.Create('html',{
+				width : 500,
+				renderTo : '#formPanel',
+				items : [
+					{
+						xtype : 'displayfield',
+						width : '100%',
+						labelText : '姓名',
+						labelAlign : 'right',
+						value : '周群辉',
+						name : 'username',
+						group : 'userinfo'
+					},
+					{
+						xtype : 'trigger',
+						width : '100%',
+						labelText : '性别',
+						onTriggerClick : function(){
+							alert(77)	
+						},
+						value : '男',
+						name : 'sexy',
+						group : 'userinfo'
+					},
+					{
+						xtype : 'selectfield',
+						width : '100%',
+						labelText : '年龄',
+						onCreateDropDwon : function( dropdown ){
+							var sch = $('<div class="nex-search"></div>')
+							dropdown.prepend(sch);
+							var self = this;
+							Nex.Create('textfield',{
+								renderTo : sch,
+								showLabel : false,
+								labelText : '',
+								width : 390,
+								onChange : function(){
+									var items = self.configs.items;
+									var list = [];
+									var v = this.val();
+									$.each( items,function(i,d){
+										if( d.text.indexOf( v ) !== -1 ) {
+											list.push( d );	
+										}	
+									} );
+									self.showDropDown(list);	
+								}
+							});
+						},
+						onSetDropDownSize : function(d){
+							d.height -= 26;	
+						},
+						items : (function(){
+							var items = [];
+							for( var i=0;i<=40;i++ ) {
+								items.push( '数据'+i )	
+							}		
+							return items;
+						})(),
+						placeholder : '请输入...',
+						onChange : function(v){
+							console.log(v)	
+						},
+						value : '数据1,数据2',
+						name : 'age',
+						group : 'userinfo'
+					},
+					{
+						xtype : 'textfield',
+						width : '100%',
+						labelText : '妻子',
+						placeholder : '请输入...',
+						value : '毛红红',
+						readOnly : true,
+						name : 'wifeName',
+						group : 'userinfo'
+					},
+					{
+						xtype : 'checkboxfield',
+						width : '100%',
+						labelText : '妻子3',
+						id : 'test3Radio',
+						placeholder : '请输入...',
+						items : (function(){
+							var items = [];
+							for( var i=0;i<=4;i++ ) {
+								items.push( '数据'+i )	
+							}		
+							items.push( '-','a',20 )	
+							return items;
+						})(),
+						onFocus22 : function(){
+							console.log('focus -radio');	
+						},
+						onChange : function(){
+							console.log('blur -radio');	
+						},
+						name : 'wifeName2',
+						group : 'userinfo'
+					},
+					{
+						xtype : 'radiofield',
+						width : '100%',
+						id : 'testRadio',
+						labelText : '妻子2',
+						placeholder : '请输入...',
+						itemDefault : {
+							width : 100	
+						},
+						items : (function(){
+							var items = [];
+							for( var i=0;i<=4;i++ ) {
+								items.push( '数据'+i )	
+							}		
+							items.push( '-','a',20 );
+							items.push( {
+								text : '测试测试测试测试测试测试',
+								disabled : true,
+								value : '789'	
+							} )	
+							return items;
+						})(),
+						//value : '789',
+						rules : 'number',
+						onFocus : function(){
+							console.log('focus -radio');	
+						},
+						onBlur : function(){
+							console.log('blur -radio');	
+						},
+						onChange : function(t,v){
+							console.log(t,v)	
+						},
+						//disabled : true,
+						name : 'wifeName2',
+						group : 'userinfo',
+						onCreate : function(){
+							var r = this;
+							
+						}
+					},
+					{
+						xtype : 'textareafield',
+						width : '100%',
+						labelText : '描述',
+						placeholder : '请输入...',
+						value : '想换人。。。',
+						height : 140,
+						name : 'desc',
+						triggerBtnsPosition : 'outer',
+						triggerBtns : ['A','B'],
+						group : 'userinfo'
+					},
+					{
+						xtype : 'singlecheckboxfield',
+						labelText : '',
+						value : '1',
+						name : 'desc2',
+						on 			 : '1',
+						off 		 : '0',
+						text  	     : '你确定不怕毛biuK你？',
+						//disabled : true,
+						onChange : function(t,v){
+							console.log(t,v)	
+						},
+						triggerBtnsPosition : 'outer',
+						group : 'userinfo'
+					}
+				]	
+			});
+		});
+		</script>
+        <input type="text" value="3090" disabled="disabled"/>
+        <label>adfa
+        <select style="width:100px;">
+        	<option>1testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>2testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>3testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>4testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>5testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>6testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>7testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+            <option>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest11</option>
+        </select>
+        </label>
+        <textarea style="white-space:100px; height:200px;" disabled="disabled">afa</textarea>
+		<input type="checkbox" value="1" checked="checked" readonly="true" />
+		<div disabled="disabled">adfa</div>
+        <input type="text" value="1" placeholder='我的。。。' style="line-height:18px; padding:2px;">
+        <div style="width:16px; height:16px; background:#30bdeb;"></div>
+         <div style="width:16px; height:16px;background:#30bde0;"></div>
+		<style type="text/css">
+		</style>
+		<span class="nex-form-radio-item">
+			<i class="nex-form-radio-icon"></i>选项1
+		</span>
+		<span class="nex-form-radio-item">
+			<i class="nex-form-radio-icon"></i>选项1
+		</span> 
+		<span class="nex-form-radio-item">
+			<i class="nex-form-radio-icon"></i>选项1
+		</span> 
+		<span class="nex-form-radio-item">
+			<i class="nex-form-radio-icon"></i>选项1
+		</span> 
+        <style type="text/css">
+		.m1 {
+			width:100px;
+			height:100px;
+			background:#ccc;
+			border:1px solid red;
+		}
+		.m2 {
+			color:#090;
+		}
+		.m2 .m3 {
+			border-color: #00F
+		}
+		.m3 {
+			border-color: #0C0
+		}
+		</style>
+        <div class="m1 m2 m3">我的加</div>
+		<script type="text/javascript">
+		$(document).click( function(){
+			//console.log(123)
+		} );
+		</script>
+        ------------------------
+        <div style="width:200px; margin-bottom:200px; font-size:0px;">
+        	<div class="nex-form-display-inline" style="border:1px solid red; display:inline-block;width: 170px; font-size:0px;"></div>
+       	 	<div class="nex-form-display-inline" style="border:1px solid red; display:inline-block;width: 170px;font-size:0px;"></div>
+       		<div class="nex-form-display-inline" style="border:1px solid red; display:inline-block;width: 170px;font-size:0px;"></div>
+            <div class="nex-form-display-inline" id="nexform-11111" style="width: 170px;border: 1px solid red;font-size:0px;"></div>
+            <div class="nex-form-display-inline" id="nexform-1111111" style="width: 170px;border: 1px solid red;font-size:0px;"></div>
+        </div>
+        
+    </body>
+</html>

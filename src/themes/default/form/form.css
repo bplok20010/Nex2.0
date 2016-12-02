@@ -1,0 +1,495 @@
+*:focus,
+input,button,select,textarea {
+  outline: none; 
+}
+.nex-clear { clear:both;}
+/*.nex-form-wraper { vertical-align:top;}*/
+.nex-form-display-block {
+display:block;
+}
+.nex-form-display-inline,
+.nex-form-display-inline-block {
+vertical-align:top;/*重要：解决inline-block会出现上下间隙问题*/
+display:inline-block;
+display:-moz-inline-stack;
+*display:inline;
+*zoom:1;
+}
+/*label css*/
+.nex-form-label {
+  display: block;
+  padding: 0;
+  cursor: default; 
+}
+.nex-form-inner-label-top .nex-form-label {
+	margin-top:3px;	
+}
+.nex-form-inner-label-bottom .nex-form-label {
+	margin-bottom:3px;	
+}
+.nex-form-label-left {
+	margin-right:5px;
+}
+.nex-form-label-right { 
+	margin-left:5px;
+}
+.nex-form-label-bottom,
+.nex-form-label-top { margin-bottom:5px;}
+
+.nex-form-body {
+	position:relative;
+	overflow:hidden;
+}
+
+.nex-form-placeholder {
+	display:block;
+	visibility: visible;
+	color:#666666;
+	position:absolute;
+	line-height:18px;
+	left:3px;
+	top:3px;
+	cursor:text;
+	display:none;
+}
+.nex-form-placeholder-show {
+	display:block;	
+}
+.nex-form-focus .nex-form-placeholder {
+	color:#CCCCCC;
+}
+
+.nex-form-trigger-body {
+	position:absolute;
+	right:1px;
+	top:1px;
+	background:#FFF;
+	height:22px;
+	padding:0 0 0 0px;/*0 0 0 2px*/
+}
+.nex-form-trigger-btn {
+	height:100%;
+	padding:0 4px;
+	line-height:22px;
+	text-align:center;
+	border: none;
+	cursor:default;
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	overflow:hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+	position:relative;
+	-webkit-transition-duration: .3s;
+    -moz-transition-duration: .3s;
+	-ms-transition-duration: .3s;
+	-o-transition-duration: .3s;
+	transition-duration: .3s;
+	-webkit-transition-property: background-color,border-color,color,-webkit-box-shadow,-webkit-transform;
+	-moz-transition-property: background-color,border-color,color,-moz-box-shadow,-moz-transform;
+	-ms-transition-property: background-color,border-color,color,-ms-box-shadow,-ms-transform;
+	-o-transition-property: background-color,border-color,color,-o-box-shadow,-o-transform;
+	transition-property: background-color,border-color,color,box-shadow,transform;
+}
+.nex-form-outer-trigger-body {
+	height:22px;
+	padding:1px 0;
+	position:relative;
+	overflow:hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+.nex-form-outer-trigger-td {
+	padding:0px;	
+}
+.nex-form-trigger-has-icon {
+	padding:0 2px;
+}
+.nex-form-trigger-icon {
+	width:16px;
+	height:16px;
+	margin-top:3px;
+	float:left;
+	background-position:center;
+	background-repeat:no-repeat;
+	display:inline-block;
+}
+.nex-form-trigger-btn-over {
+	background-color:#DEDEDE;	
+}
+.nex-form-clear-icon {
+	background:url(images/clear-icon.png);
+}
+.nex-form-clear-trigger {
+	display:none;	
+}
+.nex-form-over .nex-form-clear-trigger,
+.nex-form-focus .nex-form-clear-trigger {
+	display:inline-block;	
+	*display:inline;
+	*zoom:1;
+}
+.nex-form-empty .nex-form-clear-trigger {
+	display:none !important;	
+}
+.nex-form-field{
+  margin: 0;
+  padding:2px;
+  border:1px solid #CCC;
+  line-height: 18px;
+  vertical-align: top; 
+  -webkit-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -ms-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transition-property: background-color,border-color,color,-webkit-box-shadow,-webkit-transform;
+  -moz-transition-property: background-color,border-color,color,-moz-box-shadow,-moz-transform;
+  -ms-transition-property: background-color,border-color,color,-ms-box-shadow,-ms-transform;
+  -o-transition-property: background-color,border-color,color,-o-box-shadow,-o-transform;
+  transition-property: background-color,border-color,color,box-shadow,transform;
+}
+.nex-form-field::-ms-clear { display: none; }
+.nex-form-empty .nex-form-field {
+	height:18px;	
+}
+.nex-form-over .nex-form-field,
+.nex-form-focus .nex-form-field {
+	border-color:#26A0DA; /*30bdeb 009ADA*/
+}
+.nex-form-valid-error .nex-form-field {
+	padding:2px;
+	border:1px solid red;
+} 
+.nex-form-disabled,
+.nex-form-readonly {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+.nex-form-disabled *,
+.nex-form-readonly *{
+	cursor:default;
+}
+/*dropdown样式*/
+.nex-form-dropdown-loading {
+	position:absolute;	
+	border:1px #ccc solid;
+	text-align: left;
+	padding:2px;
+	padding-left:20px;
+	line-height:16px;
+	background:url(images/loading.gif) 2px center no-repeat;
+}
+.nex-form-dropdown {
+	position:absolute;
+	z-index:199999;
+	border:none;
+	background:#FFFFFF;
+	margin:0px; 
+	padding:0px;
+	left:-99999px;
+	top:-99999px;
+	text-align: left;
+	overflow:hidden;
+}
+.nex-form-dropdown-body {
+	position:relative;	
+	border:1px #ccc solid;
+	overflow:hidden;
+	overflow-y:auto;
+}
+.nex-form-dropdown-list {
+	
+}
+.nex-form-dropdown-item {
+	padding:3px;
+	cursor:pointer;
+	-webkit-transition-duration: .3s;
+    -moz-transition-duration: .3s;
+	-ms-transition-duration: .3s;
+	-o-transition-duration: .3s;
+	transition-duration: .3s;
+	-webkit-transition-property: background-color,border-color,color,-webkit-box-shadow,-webkit-transform;
+	-moz-transition-property: background-color,border-color,color,-moz-box-shadow,-moz-transform;
+	-ms-transition-property: background-color,border-color,color,-ms-box-shadow,-ms-transform;
+	-o-transition-property: background-color,border-color,color,-o-box-shadow,-o-transform;
+	transition-property: background-color,border-color,color,box-shadow,transform;
+}
+.nex-form-dropdown-item-selected {
+	background:#30bdeb;
+	color:#FFF;
+}
+.nex-form-dropdown-item-over {
+	background:#30bde0;
+	color:#FFF;
+}
+.nex-form-dropdown-item-disabled {
+	opacity: 0.6; 
+	filter: alpha(opacity=60);
+	color:#CCC;
+	cursor: default;
+}
+.nex-form-item-separator {
+	padding:4px 0px; 
+	overflow:hidden; 
+	position:relative;
+}
+.nex-form-line-h {
+	/*height:1px;
+	overflow:hidden;
+	background:#d7d7d7;*/
+	/*--兼容IE6的写法--*/
+	height: 0px;
+	overflow:hidden;
+	border-bottom:1px solid #d7d7d7;
+}
+.nex-ie6 .nex-form-line-h {
+	height: auto;
+	overflow:hidden;
+	border-bottom:1px solid #d7d7d7;
+}
+.nex-form-dropdown-shadow {
+	position: absolute;
+	margin-top:2px;
+	margin-left:2px;
+	background-color: #999999;
+	opacity: 0.2;
+	filter: alpha(opacity=20);
+	z-index:199998;
+	_margin:0px;
+	_padding: 0 2px 2px 0;
+	overflow:hidden;
+	top:-9999999px;
+	left:-9999999px;
+}
+.nex-form-dropdown-shadow-top {
+	margin-top:-2px;
+}
+.nex-form-dropdown-shadow iframe {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+/****************扩展组件样式**********************/
+/*displayfield*/
+.nex-form-display .nex-form-field {
+	padding:3px;
+	border:none;
+}
+/*hiddenfield*/
+.nex-form-hidden {
+	display:none;	
+}
+/*textfield*/
+.nex-form-text .nex-form-field {
+	height:18px;
+}
+/*textarea*/
+.nex-form-textarea .nex-form-field {
+	resize: none;
+}
+/*radio checkbox*/
+.nex-form-radio .nex-form-field,
+.nex-form-checkbox .nex-form-field {
+height:auto;
+line-height:100%;
+padding-left:0px;
+padding-right:0px;
+padding:1px;
+}
+.nex-form-radio .nex-form-inner-label-top .nex-form-label,
+.nex-form-checkbox .nex-form-inner-label-top .nex-form-label {
+	margin-top:0px;	
+}
+.nex-form-valid-error .nex-form-field-radio,
+.nex-form-valid-error .nex-form-field-checkbox {
+	padding:0px;
+	border:1px solid red;
+} 
+.nex-form-radio .nex-form-item-separator,
+.nex-form-checkbox .nex-form-item-separator {
+	margin-bottom:4px;	
+}
+.nex-form-radio-item,
+.nex-form-checkbox-item {
+	display:inline-block;
+	cursor:default;
+	overflow:hidden;
+	margin:0 4px 4px 0;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+
+.nex-form-radio-item-d-inline {
+	display:inline-block;
+}
+.nex-form-radio-item-d-block,
+.nex-form-radio-item-d-inline-block {
+	display:block;
+}
+.nex-form-radio-item-disabled,
+.nex-form-radio-item-readonly,
+.nex-form-checkbox-item-disabled,
+.nex-form-checkbox-item-readonly {
+	opacity : 0.3;
+	filter: alpha(opacity=30);
+}
+.nex-form-radio-icon,
+.nex-form-checkbox-icon {
+	width:13px;
+	height:13px;
+	/*line-height:13px;*/
+	overflow:hidden;
+	vertical-align:middle;
+	display:inline-block;
+	background:url(images/radio.gif) 0 0 no-repeat;
+}
+.nex-form-checkbox-icon {
+	background-image:url(images/checkbox.gif);	
+}
+.nex-form-radio-item-over .nex-form-radio-icon,
+.nex-form-checkbox-item-over .nex-form-checkbox-icon {
+	background-position:-13px 0;
+}
+.nex-form-radio-item-down .nex-form-radio-icon,
+.nex-form-checkbox-item-down .nex-form-checkbox-icon {
+	background-position:-26px 0;
+}
+.nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-checkbox-item-checked .nex-form-checkbox-icon {
+	background-position:0px -13px;
+}
+.nex-form-radio-item-over.nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-checkbox-item-over.nex-form-checkbox-item-checked .nex-form-checkbox-icon {
+	background-position:-13px -13px;
+}
+.nex-form-radio-item-down.nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-checkbox-item-down.nex-form-checkbox-item-checked .nex-form-checkbox-icon {
+	background-position:-26px -13px;
+}
+.nex-form-readonly .nex-form-radio-icon,
+.nex-form-disabled .nex-form-radio-icon,
+.nex-form-radio-item-readonly .nex-form-radio-icon,
+.nex-form-radio-item-disabled .nex-form-radio-icon,
+.nex-form-readonly .nex-form-checkbox-icon,
+.nex-form-disabled .nex-form-checkbox-icon,
+.nex-form-checkbox-item-readonly .nex-form-checkbox-icon,
+.nex-form-checkbox-item-disabled .nex-form-checkbox-icon {
+	background-position:-39px 0;
+}
+.nex-form-readonly .nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-disabled .nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-radio-item-readonly.nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-radio-item-disabled.nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-form-readonly .nex-form-checkbox-item-checked .nex-form-checkbox-icon,
+.nex-form-disabled .nex-form-checkbox-item-checked .nex-form-checkbox-icon,
+.nex-form-checkbox-item-readonly.nex-form-checkbox-item-checked .nex-form-checkbox-icon,
+.nex-form-checkbox-item-disabled.nex-form-checkbox-item-checked .nex-form-checkbox-icon {
+	background-position:-39px -13px;
+}
+/*因为IE6不支持 .A.B的方法,所以IE6的移除 over 效果*/
+.nex-ie6 .nex-form-radio-item .nex-form-radio-icon,
+.nex-ie6 .nex-form-checkbox-item .nex-form-checkbox-icon {
+	background-position:0 0;
+}
+.nex-ie6 .nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-ie6 .nex-form-checkbox-item-checked .nex-form-checkbox-icon {
+	background-position:0px -13px;
+}
+.nex-ie6 .nex-form-readonly .nex-form-radio-icon,
+.nex-ie6 .nex-form-disabled .nex-form-radio-icon,
+.nex-ie6 .nex-form-readonly .nex-form-checkbox-icon,
+.nex-ie6 .nex-form-disabled .nex-form-checkbox-icon {
+	background-position:-39px 0;
+}
+.nex-ie6 .nex-form-readonly .nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-ie6 .nex-form-disabled .nex-form-radio-item-checked .nex-form-radio-icon,
+.nex-ie6 .nex-form-readonly .nex-form-checkbox-item-checked .nex-form-checkbox-icon,
+.nex-ie6 .nex-form-disabled .nex-form-checkbox-item-checked .nex-form-checkbox-icon {
+	background-position:-39px -13px;
+	opacity : 0.3;
+	filter: alpha(opacity=30);
+}
+
+.nex-form-radio-text,
+.nex-form-checkbox-text {
+	padding:0px;
+	margin:0 0 0 4px;
+	display:inline-block;
+	*display:inline;
+	vertical-align:middle;
+	overflow:hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+	text-overflow: ellipsis;
+}
+/*select*/
+.nex-form-field-select {
+	padding-right : 22px;
+}
+.nex-form-select-icon {
+	background-image:url(images/select_arrow.png);	
+}
+.nex-form-select-dropdown-focus .nex-form-dropdown-body {
+	border-color:#26A0DA;	
+}
+
+/*trigger*/
+.nex-form-field-triggerfield {
+	padding-right : 22px;
+}
+.nex-form-triggerfield-icon {
+	background-image:url(images/select_arrow.png);		
+}
+
+
+/*
+----------------------------------------------------
+multiselect
+*/
+/*
+.nex-form-multiselect-list {
+	font:normal 13px tahoma, arial, verdana, sans-serif;
+	background:#FFFFFF;
+	text-align: left;
+	overflow:hidden;
+	display:block;
+	position:relative;
+}
+
+
+.nex-form-multiselect-list-body {
+overflow:auto;
+overflow-x:hidden;
+position:relative;
+border:1px #98c0f4 solid;
+}
+.nex-form-valid-error .nex-form-multiselect-list-body {
+	border:1px solid red;
+} 
+.nex-form-multiselect-list-item {
+padding:2px;
+position:relative;
+border:1px dotted #FFFFFF;
+cursor:pointer;
+use-select:none;
+}
+
+.nex-form-multiselect-list-item-selected {
+	background: #cbdaf0;
+	border-color: #8eabe4;
+	border-style:dotted;
+}
+.nex-form-multiselect-list-item-over{
+	background: #dfe8f6;
+	border-color: #a3bae9;
+	border-style:dotted;
+}
+.nex-form-multiselect-list-item-disabled {
+opacity: 0.6; 
+filter: alpha(opacity=60);
+color:#CCC;
+cursor: default;
+}
+*/

@@ -1,0 +1,270 @@
+.nex-calendar {
+	position:relative;
+	overflow:visiblel;
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	padding:5px;
+	background:#FFF;
+}
+.nex-calendar-border {
+	border:1px solid #CCC;	
+}
+.nex-cal-clear {
+	height:0px;
+	width:0px;
+	font-size:0px;
+	overflow:hidden;
+	clear:both;	
+}
+.nex-cal-header {
+	font-size:0px;	
+}
+.nex-cal-header,
+.nex-cal-body,
+.nex-cal-footer {
+	float:left;
+	clear:both;
+}
+.nex-cal-body {
+}
+.nex-ie6 .nex-cal-body,
+.nex-ie7 .nex-cal-body {
+	width:170px;
+}
+.nex-cal-table { 
+	width:100%; 
+	height:100%;
+}
+.nex-cal-width-auto .nex-cal-table { 
+	width:auto;
+}
+.nex-cal-height-auto .nex-cal-table { 
+	height:auto;
+}
+.nex-cal-mpicker-table td,
+.nex-cal-table th,
+.nex-cal-table td {
+	border-collapse : separate;
+	-webkit-transition-duration: .3s;
+	-moz-transition-duration: .3s;
+	-ms-transition-duration: .3s;
+	-o-transition-duration: .3s;
+	transition-duration: .3s;
+	-webkit-transition-property: background-color,border-color,color,-webkit-box-shadow,-webkit-transform;
+	-moz-transition-property: background-color,border-color,color,-moz-box-shadow,-moz-transform;
+	-ms-transition-property: background-color,border-color,color,-ms-box-shadow,-ms-transform;
+	-o-transition-property: background-color,border-color,color,-o-box-shadow,-o-transform;
+	transition-property: background-color,border-color,color,box-shadow,transform;
+}
+.nex-cal-cell {
+	padding:2px 8px;
+	vertical-align:middle;
+	text-align:center;
+	cursor:default;
+}
+.nex-cal-table th {
+	border-bottom: 1px solid #7FB1CE;	
+}
+.nex-cal-mpicker-b {
+	padding:0px;	
+}
+.nex-cal-today {
+	background:#FFE767;
+}
+.nex-cal-mpicker-over,
+.nex-cal-date-over {
+	background:#c5e8fe;	
+}
+.nex-cal-month-selected,
+.nex-cal-date-selected {
+	color: #fff;
+	background-color: #15a4fa;
+}
+.nex-cal-item-table-td {
+	vertical-align:top;
+	/*padding:0 2px;	*/
+}
+.nex-cal-item-split-td {
+	width:5px;
+	vertical-align:middle;
+	text-align:center;
+}
+.nex-cal-item-split-line {
+	width:0px;
+	margin:0px auto;
+}
+.nex-cal-date-disabled,
+.nex-cal-other-month {
+	opacity: .35 !important;
+	filter: Alpha(Opacity=35) !important;
+}
+.nex-cal-item {
+	overflow:hidden;
+}
+.nex-cal-items-table,
+.nex-cal-item { 
+	width:100%;
+	height:100%;
+}
+.nex-cal-height-auto .nex-cal-items-table,
+.nex-cal-height-auto .nex-cal-item { 
+	height:auto;
+}
+.nex-cal-width-auto .nex-cal-items-table,
+.nex-cal-width-auto .nex-cal-item { 
+	width:auto;
+}
+.nex-cal-item-header {
+	position:relative;
+	background:#FFF;
+	z-index:2;	
+}
+.nex-cal-item-title {
+	height:26px;
+	line-height:26px;
+	position:relative;
+	text-align:center;
+	padding:0 50px;	
+}
+.nex-cal-prev-icons,
+.nex-cal-next-icons {
+	position:absolute;
+	height:20px;
+	top:50%;
+	margin-top:-10px;
+}
+.nex-cal-prev-icons {
+	left:5px;	
+}
+.nex-cal-next-icons {
+	right:5px;	
+}
+.nex-cal-aicon {
+	display:inline-block;
+	height:20px;
+	width:20px;
+	background-repeat:no-repeat;
+	background-position:0 0;
+	background-image:url(images/calendar_arrows.png);
+}
+
+.nex-cal-prevyear {
+	background-position:2px 2px;	
+}
+.nex-cal-prevmonth {
+	background-position:-15px 2px;	
+}
+.nex-cal-nextyear {
+	background-position:-45px 2px;	
+}
+.nex-cal-nextmonth {
+	background-position:-30px 2px;	
+}
+.nex-cal-ymlabel {
+	cursor:pointer;
+	overflow:hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+	text-overflow: ellipsis;
+}
+.nex-cal-item-body {
+	position:relative;
+	overflow:hidden;	
+}
+.nex-cal-ympicker {
+	position:absolute;
+	left : 0px;
+	top:-100%;
+	background:#FFF;
+	padding:0 20px;
+}
+.nex-cal-mpicker-table {
+	width:100%;
+	height:100%;	
+}
+.nex-cal-ypicker-wrap {
+	text-align:center;
+	vertical-align:middle;
+	padding-top:5px;
+}
+.nex-cal-ypicker {
+	width:40px;
+	text-align:center;
+	padding:1px 5px;
+	font-size:14px;
+	border:1px solid #CCC;
+	vertical-align:middle;
+}
+.nex-cal-ympicker-sep {
+	height:5px;
+	text-align:center;	
+}
+.nex-cal-ympicker-line {
+	height:0px;
+	overflow:hidden;
+	border-bottom:1px solid #ededed;
+	margin:4px 0;	
+}
+.nex-cal-mpicker-table td {
+	text-align:center;
+	vertical-align:middle;
+	cursor:default;	
+}
+.nex-cal-ypicker-over,
+.nex-cal-ypicker-focus {
+	border:1px solid #15A4FA;	
+}
+.prev-ypicker,
+.next-ypicker {
+	display:inline-block;
+	vertical-align:middle;
+	height:20px;
+	width:20px;	
+	background-image:url(images/calendar_arrows.png);
+	cursor: pointer;
+}
+.prev-ypicker {
+	margin-right:2px;	
+	background-position:-15px 2px;	
+}
+.next-ypicker {
+	margin-left:2px;	
+	background-position:-30px 2px;	
+}
+/*
+*datepicker
+*/
+.nex-datepicker-absolute {
+	position:absolute;
+}
+.nex-datepicker .nex-cal-footer {
+	float:none;
+	display:block;
+}
+.nex-cal-footer-inner {
+	padding:5px 0 0 0;
+	text-align:right;
+	position:relative;
+}
+.nex-datepicker .nex-button {
+	margin-left:5px;	
+}
+.nex-cal-btns {
+	padding:0px;
+	background: #FFF;
+	filter : none;
+}
+.nex-cal-ok-btn {
+	color:#FFF;
+	border-color: #15a4fa;
+	background: #15a4fa;
+}
+.nex-cal-ok-btn-over {
+	border-color: #0588d7;
+	background-color: #0588d7;
+}
+.nex-cal-ok-btn-click {
+	border-color: #046FAF;
+	background-color: #046FAF;
+}

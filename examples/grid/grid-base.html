@@ -1,0 +1,346 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+        <link rel="stylesheet" href="../../src/themes/default/grid/grid.debug.css">
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+       
+        <script src="../../src/nex/jquery.easing.1.3.js"></script>
+        <script src="../../src/nex/jquery.mousewheel.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+        <script src="../../src/nex/grid/jquery.nexGrid.js"></script>
+         <script src="../../src/nex/grid/jquery.nexGrid.pagination.js"></script>
+		<script src="../../src/nex/grid/jquery.nexGrid.sort.js"></script>
+        <script src="../../src/nex/grid/jquery.nexGrid.lockcolumn.js"></script>
+        <script src="../../src/nex/grid/jquery.nexGrid.lockrow.js"></script>
+    </head>
+    <body>
+        <div class="container">
+			<div style="padding:10px; width:100px; border:3px solid red; overflow:auto; overflow-x:hidden; height:100px;" id="test">
+				<div style="width:200px; display:none; height:200px;"></div>
+			</div>
+			<div style="width:100px; height:100px; position:absolute; overflow:scroll; background:#ccc;" id="sc"></div>
+			
+            <div id="base">
+            	
+            </div>
+        </div>
+        <script type="text/javascript">
+		var console = console || {
+			log : function(s){
+				var argvs = [];
+				argvs = argvs.concat.apply( argvs,arguments );
+				$(test).append( $('<div>'+argvs.join('')+'</div>') );
+			}
+		};
+		
+		var g1,p2,p3;
+			$(function(){
+				g1=Nex.Create('html',{
+					renderTo : '#base',
+					title : 'grid',
+					autoResize : false,
+					padding : 5,
+					width : '1000',
+					height : 'auto',
+					//autoScroll : true,
+					items : [
+						{
+							xtype : 'grid',
+							id : 'hgrid',
+							pageSize : 98,
+							//forceFit : true,
+							height : 400,
+							pagination : true,
+							//lazyLoadRow : true,
+							//autoHeight : true,
+							//nowrap : false,
+							onCreate : function(){
+								window.grid = this;
+								setTimeout(function(){
+									//alert($(test).css('overflow-x'));
+									//alert($(test).css('overflow-y'));
+									//alert($(test).css('overflow'));
+									//var s = Nex.hasScroll(xbody,'top');
+									//alert($(xbody).css('overflow-y'));
+								},0);
+							},
+							multiFromStrData1 : {
+								f4 : {
+									title : 'xxxx'	
+								},
+								f4_id : { width : '10%',reader:function(v){return v;},sortable:true,field:'id' },
+								f3_title : { width : '30%',title:'--' }
+							},
+						//	hideColumns : ['message33'],
+							//multiColumns : false,
+							columns: [
+								{field : 'f3_id'},
+								{field : 'f4_id'},{field : 'f3_title2'},
+								{field : 'f4_title3'},/*
+								{title : 'message',field : 'message1',width : '30%'},
+								{title : 'message',field : 'message2',width : '30%'},
+								{title : 'message',field : 'message3',width : '30%'},
+								{title : 'message',field : 'message4',width : '30%'},
+								{title : 'message5',field : 'message5',width : '30%'},
+								{title : 'message',field : 'message6',width : '30%'},
+								{title : 'message',field : 'message7',width : '30%'},
+								{title : 'message',field : 'message8',width : '30%'},
+								{title : 'message',field : 'message9',width : '30%'},
+								{title : 'message',field : 'message11',width : '30%'},
+								{title : 'message',field : 'message12',width : '30%'},
+								{title : 'message',field : 'message13',width : '30%'},
+								{title : 'message14',field : 'message14',width : '30%'},
+								{title : 'message',field : 'message15',width : '30%'},
+								{title : 'message',field : 'message16',width : '30%'},
+								{title : 'message',field : 'message17',width : '30%'},
+								{title : 'message',field : 'message18',width : '30%'},
+								{title : 'message',field : 'message19',width : '30%'},
+								{title : 'message',field : 'message21',width : '30%'},
+								{title : 'message22',field : 'message22',width : '30%'},
+								{title : 'message',field : 'message23',width : '30%'},
+								{title : 'message',field : 'message23x',width : '30%'},
+								{title : 'message',field : 'message25',width : '30%'},
+								{title : 'message',field : 'message26',width : '30%'},
+								{title : 'message',field : 'message27',width : '30%'},
+								{title : 'message',field : 'message28',width : '30%'},
+								{title : 'message',field : 'message29',width : '30%'},
+								{title : 'message',field : 'message31',width : '30%'},
+								{title : 'message',field : 'message32',width : '30%'},*/
+								{title : 'message33',field : 'message33',width : '100',reader : {'_default_':function(d){
+									return d.message33 == 1 ?'ok':'error';	
+								}}},
+								{
+									title : '综合信息',
+									disabled : true,
+									columns : [
+										{ title : '日期',field : 'date',
+											columns : [
+												{field:'year'},
+												{field:'month',sortable:true},
+												{field:'day',sortable:true}
+											]
+										 },
+										{ title : '天气',field : 'feater' },
+										{ title : '温度温度温度',field : 'wendu' }
+									]
+								}
+							],
+							mulitEngine : 1,
+							onViewSizeChange : function(){ console.log('finish') },
+							data : (function(d,s){
+								
+								var rows = [];
+								for( var i=0;i<100;i++ ) {
+									var d = { ff_q:78,x_id:i,ff_w:'0078',f3_title2:'今日新闻<img src="http://www.baidu.com/img/baidu_jgylogo3.gif" />',top_t4_f4_tt4_title2:'?',y_title:'特大新闻',year:'2014',month:'09',day:23+i,feater:'多云',wendu:'20' };
+									rows.push( d );
+								}
+								return rows;
+								setTimeout(function(){
+									s({rows:rows})	
+								},2000);
+							})()
+						},
+						{
+							xtype : 'grid',
+							pageSize : 98,
+							//forceFit : true,
+							height : 400,
+							pagination : true,
+							//lazyLoadRow : true,
+							//autoHeight : true,
+							//nowrap : false,
+							onCreate : function(){
+								window.grid = this;
+								setTimeout(function(){
+									//alert($(test).css('overflow-x'));
+									//alert($(test).css('overflow-y'));
+									//alert($(test).css('overflow'));
+									//var s = Nex.hasScroll(xbody,'top');
+									//alert($(xbody).css('overflow-y'));
+								},0);
+							},
+							multiFromStrData1 : {
+								f4 : {
+									title : 'xxxx'	
+								},
+								f4_id : { width : '10%',reader:function(v){return v;},sortable:true,field:'id' },
+								f3_title : { width : '30%',title:'--' }
+							},
+						//	hideColumns : ['message33'],
+							//multiColumns : false,
+							columns: [
+								{field : 'f3_id'},
+								{field : 'f4_id'},{field : 'f3_title2'},
+								{field : 'f4_title3'},/*
+								{title : 'message',field : 'message1',width : '30%'},
+								{title : 'message',field : 'message2',width : '30%'},
+								{title : 'message',field : 'message3',width : '30%'},
+								{title : 'message',field : 'message4',width : '30%'},
+								{title : 'message5',field : 'message5',width : '30%'},
+								{title : 'message',field : 'message6',width : '30%'},
+								{title : 'message',field : 'message7',width : '30%'},
+								{title : 'message',field : 'message8',width : '30%'},
+								{title : 'message',field : 'message9',width : '30%'},
+								{title : 'message',field : 'message11',width : '30%'},
+								{title : 'message',field : 'message12',width : '30%'},
+								{title : 'message',field : 'message13',width : '30%'},
+								{title : 'message14',field : 'message14',width : '30%'},
+								{title : 'message',field : 'message15',width : '30%'},
+								{title : 'message',field : 'message16',width : '30%'},
+								{title : 'message',field : 'message17',width : '30%'},
+								{title : 'message',field : 'message18',width : '30%'},
+								{title : 'message',field : 'message19',width : '30%'},
+								{title : 'message',field : 'message21',width : '30%'},
+								{title : 'message22',field : 'message22',width : '30%'},
+								{title : 'message',field : 'message23',width : '30%'},
+								{title : 'message',field : 'message23x',width : '30%'},
+								{title : 'message',field : 'message25',width : '30%'},
+								{title : 'message',field : 'message26',width : '30%'},
+								{title : 'message',field : 'message27',width : '30%'},
+								{title : 'message',field : 'message28',width : '30%'},
+								{title : 'message',field : 'message29',width : '30%'},
+								{title : 'message',field : 'message31',width : '30%'},
+								{title : 'message',field : 'message32',width : '30%'},*/
+								{title : 'message33',field : 'message33',width : '100',reader : {'_default_':function(d){
+									return d.message33 == 1 ?'ok':'error';	
+								}}},
+								{
+									title : '综合信息',
+									disabled : true,
+									columns : [
+										{ title : '日期',field : 'date',
+											columns : [
+												{field:'year'},
+												{field:'month',sortable:true},
+												{field:'day',sortable:true}
+											]
+										 },
+										{ title : '天气',field : 'feater' },
+										{ title : '温度温度温度',field : 'wendu' }
+									]
+								}
+							],
+							mulitEngine : 1,
+							onViewSizeChange : function(){ console.log('finish') },
+							data : (function(d,s){
+								
+								var rows = [];
+								for( var i=0;i<100;i++ ) {
+									var d = { ff_q:78,x_id:i,ff_w:'0078',f3_title2:'今日新闻<img src="http://www.baidu.com/img/baidu_jgylogo3.gif" />',top_t4_f4_tt4_title2:'?',y_title:'特大新闻',year:'2014',month:'09',day:23+i,feater:'多云',wendu:'20' };
+									rows.push( d );
+								}
+								return rows;
+								setTimeout(function(){
+									s({rows:rows})	
+								},2000);
+							})()
+						},
+						{
+							xtype : 'grid',
+							pageSize : 98,
+							//forceFit : true,
+							height : 400,
+							pagination : true,
+							//lazyLoadRow : true,
+							//autoHeight : true,
+							//nowrap : false,
+							onCreate : function(){
+								window.grid = this;
+								setTimeout(function(){
+									//alert($(test).css('overflow-x'));
+									//alert($(test).css('overflow-y'));
+									//alert($(test).css('overflow'));
+									//var s = Nex.hasScroll(xbody,'top');
+									//alert($(xbody).css('overflow-y'));
+								},0);
+							},
+							multiFromStrData1 : {
+								f4 : {
+									title : 'xxxx'	
+								},
+								f4_id : { width : '10%',reader:function(v){return v;},sortable:true,field:'id' },
+								f3_title : { width : '30%',title:'--' }
+							},
+						//	hideColumns : ['message33'],
+							//multiColumns : false,
+							columns: [
+								{field : 'f3_id'},
+								{field : 'f4_id'},{field : 'f3_title2'},
+								{field : 'f4_title3'},/*
+								{title : 'message',field : 'message1',width : '30%'},
+								{title : 'message',field : 'message2',width : '30%'},
+								{title : 'message',field : 'message3',width : '30%'},
+								{title : 'message',field : 'message4',width : '30%'},
+								{title : 'message5',field : 'message5',width : '30%'},
+								{title : 'message',field : 'message6',width : '30%'},
+								{title : 'message',field : 'message7',width : '30%'},
+								{title : 'message',field : 'message8',width : '30%'},
+								{title : 'message',field : 'message9',width : '30%'},
+								{title : 'message',field : 'message11',width : '30%'},
+								{title : 'message',field : 'message12',width : '30%'},
+								{title : 'message',field : 'message13',width : '30%'},
+								{title : 'message14',field : 'message14',width : '30%'},
+								{title : 'message',field : 'message15',width : '30%'},
+								{title : 'message',field : 'message16',width : '30%'},
+								{title : 'message',field : 'message17',width : '30%'},
+								{title : 'message',field : 'message18',width : '30%'},
+								{title : 'message',field : 'message19',width : '30%'},
+								{title : 'message',field : 'message21',width : '30%'},
+								{title : 'message22',field : 'message22',width : '30%'},
+								{title : 'message',field : 'message23',width : '30%'},
+								{title : 'message',field : 'message23x',width : '30%'},
+								{title : 'message',field : 'message25',width : '30%'},
+								{title : 'message',field : 'message26',width : '30%'},
+								{title : 'message',field : 'message27',width : '30%'},
+								{title : 'message',field : 'message28',width : '30%'},
+								{title : 'message',field : 'message29',width : '30%'},
+								{title : 'message',field : 'message31',width : '30%'},
+								{title : 'message',field : 'message32',width : '30%'},*/
+								{title : 'message33',field : 'message33',width : '100',reader : {'_default_':function(d){
+									return d.message33 == 1 ?'ok':'error';	
+								}}},
+								{
+									title : '综合信息',
+									disabled : true,
+									columns : [
+										{ title : '日期',field : 'date',
+											columns : [
+												{field:'year'},
+												{field:'month',sortable:true},
+												{field:'day',sortable:true}
+											]
+										 },
+										{ title : '天气',field : 'feater' },
+										{ title : '温度温度温度',field : 'wendu' }
+									]
+								}
+							],
+							mulitEngine : 1,
+							onViewSizeChange : function(){ console.log('finish') },
+							data : (function(d,s){
+								
+								var rows = [];
+								for( var i=0;i<100;i++ ) {
+									var d = { ff_q:78,x_id:i,ff_w:'0078',f3_title2:'今日新闻<img src="http://www.baidu.com/img/baidu_jgylogo3.gif" />',top_t4_f4_tt4_title2:'?',y_title:'特大新闻',year:'2014',month:'09',day:23+i,feater:'多云',wendu:'20' };
+									rows.push( d );
+								}
+								return rows;
+								setTimeout(function(){
+									s({rows:rows})	
+								},2000);
+							})()
+						}
+					]
+				});	
+			});
+		</script>
+    </body>
+</html>

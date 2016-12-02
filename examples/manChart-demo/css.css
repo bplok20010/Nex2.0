@@ -1,0 +1,218 @@
+.pos-rel {position: relative;}
+/*=年龄分布=*/
+.visitor_age ul li{
+	float:left;
+	width:14%;
+	text-align:right;
+	color:#c4c4c4;
+}
+.visitor_age i{
+	
+}
+.visitor_age .visitor_cont{
+	width:480px;
+	margin:0 auto;
+}
+
+.visitor_pillar{
+	width:450px;
+	margin:10px auto;
+}
+
+.visitor_pillar li{
+	height:220px;
+	vertical-align:bottom;
+	position:relative;
+	
+}
+.visitor_pillar .vline{
+	position:absolute;
+	bottom:80px; 
+	left:10px;
+	text-align:left;
+}
+.visitor_pillar em{
+	color:#3ad2dc;
+	display:none;
+}
+.visitor_pillar span{
+	position:absolute;
+	bottom:0; 
+	left:0;
+	text-align:center;
+	display:inline-block;
+	font-size:12px;
+	
+}
+.visitor_pillar a:link span, .visitor_pillar a:visited span {
+	 color:#c4c4c4;
+}
+.visitor_pillar a:active span, .visitor_pillar a:hover span{
+	 color:#c4c4c4;
+}
+.visitor_pillar a:link, .visitor_pillar a:visited {
+	 
+}
+.visitor_pillar a:active, .visitor_pillar a:hover {
+	 text-decoration:none;
+}
+.visitor_pillar a:hover .i_pillar{
+	 background:#8cc151;
+}
+.visitor_pillar a:hover em{
+	 color:#8cc151;
+	 display:inline-block;
+}
+.i_pillar{width:30px; display:inline-block; background:#3ad2dc; margin-right:4px;
+	height: 140px;}
+
+
+.visitor_user ul li{
+	float:left;
+	margin-right:4px;	
+}
+
+.visitor_user .visitor_cont{
+	width:260px;
+	margin:0px auto;
+	cursor:pointer;
+}
+
+/*=用户年龄头像=*/
+.i_v00,.i_v10,.i_v20,.i_v30,.i_v40,.i_v50,.i_v60{ width:50px; height:55px; display:inline-block; vertical-align:middle;}
+.i_v00{background:url(images/v0.png) no-repeat 0 0;}
+.i_v10{background:url(images/v10.png) no-repeat 0 0;}
+.i_v20{background:url(images/v20.png) no-repeat 0 0;}
+.i_v30{background:url(images/v30.png) no-repeat 0 0;}
+.i_v40{background:url(images/v40.png) no-repeat 0 0;}
+.i_v50{background:url(images/v50.png) no-repeat 0 0;}
+.i_v60{background:url(images/v60.png) no-repeat 0 0;}
+
+
+.visitor_user .i_ucurrent{
+		position:relative;
+}
+.visitor_user .legend{ width:80px; float:right;color:#6c6c6c;margin-top: 60px;}
+.visitor_user .legend i{ width:10px; height:10px; display:inline-block;  margin-right:5px; font-size:0;}
+.visitor_user .i_new{ background:#8cc151; }
+.visitor_user .i_old{background:#3ad2dc;}
+.visitor_user .current{
+	position:absolute;
+	background:#8cc151;	
+	height:20px;
+	line-height:20px;
+	display:inline-block;
+	color:#fff;
+	top:-20px;
+	right:-15px;
+	font-style:normal;
+	text-align:center;
+	
+	
+}
+.visitor_user .visitor_cont:hover .current{
+	-webkit-animation:1s .1s ease-out both;
+	-moz-animation:1s .1s ease-out both;
+   -webkit-animation-name:fadeInUp2;  
+	-moz-animation-name:fadeInUp2; 
+	 top:-32px;
+	 right:-28px;
+	height:32px;
+	line-height:32px;
+	font-size:20px;
+}
+
+@-webkit-keyframes fadeInUp2{
+	0%{
+	 opacity:0;
+	 top:-20px;
+	}
+	100%{
+	 opacity:1;
+	 top:-32px;
+	height:32px;
+	line-height:32px;
+	font-size:20px;
+	}
+}
+@-moz-keyframes fadeInUp2{
+	0%{
+	opacity:0;	
+	 top:-20px;
+	}
+	100%{
+	opacity:1;
+	 top:-32px;
+	height:32px;
+	line-height:32px;
+	font-size:20px;
+	}
+}
+
+.visitor_education li{
+	float:left;
+	height:40px;	
+}
+.visitor_education a:link, .visitor_education a:visited {
+	 
+}
+.visitor_education a:active, .visitor_education a:hover {
+	 text-decoration:none;
+}
+.visitor_education .legend{color:#6c6c6c; margin:15px auto 0; width:300px; font-size:12px;}
+.visitor_education .legend p{float:left; margin-right:10px;}
+.visitor_education .legend i{ width:10px; height:10px; display:inline-block;  margin-right:5px; font-size:0}
+
+.visitor_streak{ margin:30px auto 0; width:300px;}
+.visitor_streak li{
+	vertical-align:bottom;
+	height:120px;
+	float:left;
+}
+.visitor_streak i{
+	height:60px;
+	display:inline-block;
+	margin-top:40px;
+}
+.visitor_streak em{
+	color:#3ad2dc;
+	display:none;
+	position:absolute;
+}
+.visitor_streak a{
+	
+}
+.visitor_streak a:link, .visitor_streak a:visited {
+	 
+}
+.visitor_streak a:active, .visitor_streak a:hover {
+	 text-decoration:none;
+}
+
+.visitor_streak a:hover i{
+	margin-top:10px;
+	height:90px;
+}
+.visitor_streak a:hover em{
+	 display:inline-block;
+}
+
+.ul_unew, .ul_uold { position: absolute;top: 70px; left: 0;height: 61px;}
+.ul_unew { z-index: 3; background: url(images/unew.png) repeat-x;}
+.ul_uold { z-index: 2; background: url(images/uold.png) repeat-x; width: 100%;}
+.visitor_user .legend {line-height: 17px;}
+.visitor_cont{text-align:center; padding:10px 0;}
+.visitor_age{ width:100%; float:left; padding-right:20px; margin-bottom:10px;}
+.chart_tit{ font-size:18px; font-weight:400;}
+
+.visitor_education{width:100%;}
+.nex-manchart {font-size: 14px;overflow: hidden;height: 100%;}
+.visitor_streak{}  /*==学历分布==*/
+.i_education0{background:#0ea4ae;}  /*=未知=*/
+.i_education1{ background:#96e9ee;} /*=初中=*/
+.i_education2{background:#65dde5;}  /*=高中=*/
+.i_education3{background:#8cc151;}  /*=本科=*/
+.i_education4{background:#3ad2dc;}  /*=硕士=*/
+.i_education5{background:#1cbec9;}  /*=博士=*/ 
+
+.visitor_streak ul { overflow: hidden; width: 282px;}

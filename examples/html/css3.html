@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="../css/examples.css">
+        <link rel="stylesheet" href="../../src/themes/default/nexBase.css">
+        <link rel="stylesheet" href="../../src/themes/default/panel/nexPanel.css">
+        <script src="../../src/jquery-1.8.0.min.js"></script>
+        <script src="../../src/nex/jquery.easing.1.3.js"></script>
+        <script src="../../src/nex/jquery.mousewheel.js"></script>
+        <script src="../../src/nex/jquery.nexBase.js"></script>
+        <script src="../../src/nex/jquery.nexHtml.js"></script>
+    </head>
+    <body>
+    <style type="text/css">
+	/*博客详情*/
+@keyframes tiao_fly {
+  0% {transform:translateX(0%) translateY(-15%) rotateZ(-20.5deg);}
+  100% {transform:translateX(0%) translateY(-0%) rotateZ(-20.5deg);}
+}
+@-webkit-keyframes tiao_fly {
+  0% {-webkit-transform:translateX(0%) translateY(-15%) rotateZ(-20.5deg);}
+  100% {-webkit-transform:translateX(0%) translateY(-0%) rotateZ(-20.5deg);}
+}
+@-moz-keyframes tiao_fly {
+  0% {-moz-transform:translateX(0%) translateY(-15%) rotateZ(-20.5deg);}
+  100% {-moz-transform:translateX(0%) translateY(-0%) rotateZ(-20.5deg);}
+}
+@-ms-keyframes tiao_fly {
+  0% {-ms-transform:translateX(0%) translateY(-15%) rotateZ(-20.5deg);}
+  100% {-ms-transform:translateX(0%) translateY(-0%) rotateZ(-20.5deg);}
+}
+@-o-keyframes tiao_fly {
+  0% {-o-transform:translateX(0%) translateY(-15%) rotateZ(-20.5deg);}
+  100% {-o-transform:translateX(0%) translateY(-0%) rotateZ(-20.5deg);}
+}
+@keyframes tiao_fly {
+  0% {transform:translateX(0%) translateY(-15%) rotateZ(-20.5deg);}
+  100% {transform:translateX(0%) translateY(-0%) rotateZ(-20.5deg);}
+}
+
+@keyframes ba_fly {
+  0% {transform:translateX(0%) translateY(-15%) rotateZ(3.5deg);}
+  100% {transform:translateX(0%) translateY(-0%) rotateZ(3.5deg);}
+}
+@-webkit-keyframes ba_fly {
+  0% {-webkit-transform:translateX(0%) translateY(-15%) rotateZ(3.5deg);}
+  100% {-webkit-transform:translateX(0%) translateY(-0%) rotateZ(3.5deg);}
+}
+@-moz-keyframes ba_fly {
+  0% {-moz-transform:translateX(0%) translateY(-15%) rotateZ(3.5deg);}
+  100% {-moz-transform:translateX(0%) translateY(-0%) rotateZ(3.5deg);}
+}
+@-ms-keyframes ba_fly {
+  0% {-ms-transform:translateX(0%) translateY(-15%) rotateZ(3.5deg);}
+  100% {-ms-transform:translateX(0%) translateY(-0%) rotateZ(3.5deg);}
+}
+@-o-keyframes ba_fly {
+  0% {-o-transform:translateX(0%) translateY(-15%) rotateZ(3.5deg);}
+  100% {-o-transform:translateX(0%) translateY(-0%) rotateZ(3.5deg);}
+}
+@keyframes ba_fly {
+  0% {transform:translateX(0%) translateY(-15%) rotateZ(3.5deg);}
+  100% {transform:translateX(0%) translateY(-0%) rotateZ(3.5deg);}
+}
+
+.po_blg_detail_tiao {
+  font-size: 18px;
+  color: #cc0000;
+  animation: tiao_fly 0.2s 0s alternate infinite;
+  -webkit-animation: tiao_fly 0.2s 0s alternate infinite;
+  -moz-animation: tiao_fly 0.2s 0s alternate infinite;
+  -ms-animation: tiao_fly 0.2s 0s alternate infinite;
+  -o-animation: tiao_fly 0.2s 0s alternate infinite;
+  transform: rotateZ(-20.5deg);
+  -webkit-transform: rotateZ(-20.5deg);
+  -moz-transform: rotateZ(-20.5deg);
+  -ms-transform: rotateZ(-20.5deg);
+  -o-transform: rotateZ(-20.5deg);
+  position: absolute;
+  font-weight: bold;
+  font-size: 18px;
+}
+.po_blg_detail_ba {
+  font-size: 18px;
+  color: #333;
+  position: absolute;
+  margin-left: 25px !important;
+  animation: ba_fly 0.2s .2s alternate infinite;
+  -webkit-animation: ba_fly 0.2s .2s alternate infinite;
+  -moz-animation: ba_fly 0.2s .2s alternate infinite;
+  -ms-animation: ba_fly 0.2s .2s alternate infinite;
+  -o-animation: ba_fly 0.2s .2s alternate infinite;
+  transform: rotateZ(3.5deg);
+  -webkit-transform: rotateZ(3.5deg);
+  -moz-transform: rotateZ(3.5deg);
+  -ms-transform: rotateZ(3.5deg);
+  -o-transform: rotateZ(3.5deg);
+  font-size: 18px;
+}
+	</style>
+    <span>准备好了么？&nbsp;<label class="po_blg_detail_tiao">跳</label><label class="po_blg_detail_ba">吧</label><label class="po_blg_detail_th">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;！</label></span>
+    </body>
+</html>

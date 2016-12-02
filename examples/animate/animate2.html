@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>puff demo</title>
+ <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+  <style>
+  #toggle {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+	position:absolute;
+  }
+  </style>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="jquery-ui.js"></script>
+</head>
+<body>
+ 
+<p>Click anywhere to toggle the box.</p>
+<div id="toggle">adfads</div>
+ 
+<script>
+$( document ).click(function() {
+  $( "#toggle" ).toggle( "puff" );
+});
+</script>
+ 
+</body>
+</html>
